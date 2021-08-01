@@ -1,0 +1,24 @@
+{
+  "name": "painel-show-do-milhao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RogerEC/painel-show-do-milhao.git"
+  },
+  "author": "Roger Eliodoro Condras",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RogerEC/painel-show-do-milhao/issues"
+  },
+  "homepage": "https://github.com/RogerEC/painel-show-do-milhao#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^4.0.1",
+    "socket.io": "^4.1.3"
+  }
+}
