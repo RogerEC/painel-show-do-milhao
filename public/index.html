@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <!-- Required meta tags -->
+        <title>Show do Milhão - Painel</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#681323">
+        <meta name="author" content="Roger Eliodoro Condras">
+        <meta name="copyright" content="© 2021 Roger Eliodoro Condras">
+        <meta name="creator" content="Roger Eliodoro Condras">
+        <meta name="publisher" content="Roger Eliodoro Condras">
+        <meta name="rating" content="general">
+        <!-- Icone guia navegador -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+        <!-- Bootstrap CSS -->
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" >
+        <link href="/assets/css/index.css" rel="stylesheet" >
+    </head>
+    
+    <body>
+        <section id="home-panel" class="background">
+            <div class="h-100 d-flex align-items-center justify-content-center">
+                <button class="btn-primary btn me-3" id="btn-show-control-panel"><b>EXIBIR PAINEL DE CONTROLE</b></button>
+                <button class="btn-primary btn" id="btn-show-display-panel"><b>EXIBIR PAINEL DE EXIBIÇÃO</b></button>
+            </div>
+        </section>
+        <section id="control-panel" class="background hidden">
+            <div class="container-fluid">
+                <h1 class="pt-5 pb-5">Painel de Controle</h1>
+                <div class="row mt-3">
+                    <div class="col-3">
+                        <button class="btn btn-success w-100" id="btn-switch-video-slide" disabled>SLIDE</button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-success w-100" id="btn-show-next-question">PRÓXIMA PERGUNTA</button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-success w-100" id="btn-show-next-alternative" disabled>PRÓXIMA ALTERNATIVA</button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-danger w-100" id="btn-clean-screen" disabled>LIMPAR TELA</button>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-auto">
+                                <button class="btn btn-success btn-select-alternative" value="a" disabled>A</button>
+                            </div>
+                            <div class="col-auto ps-1">
+                                <button class="btn btn-success btn-select-alternative" value="b" disabled>B</button>
+                            </div>
+                            <div class="col-auto ps-1">
+                                <button class="btn btn-success btn-select-alternative" value="c" disabled>C</button>
+                            </div>
+                            <div class="col-auto ps-1">
+                                <button class="btn btn-success btn-select-alternative" value="d" disabled>D</button>
+                            </div>
+                            <div class="col-auto ps-1">
+                                <button class="btn btn-success pe-3 btn-select-alternative" value="e" disabled>E</button>
+                            </div>
+                            <div class="col-auto ps-1 pe-0">
+                                <button class="btn btn-danger pe-3" id="btn-clear-selected-alternatives" disabled>L</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-success w-100" id="btn-draw-card" disabled>CARTAS</button>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-info w-100" id="btn-check-question" disabled>VERIFICAR</button>
+                    </div>
+                    
+                    <div class="col-4">
+                        <button class="btn btn-danger w-100" id="btn-delete-alternative" disabled>ELIMINAR ALTERNATIVA</button>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-auto">
+                                <button class="btn btn-success btn-disable-alternative" value="a" disable>a</button>
+                            </div>
+                            <div class="col-auto ps-1">
+                                <button class="btn btn-success btn-disable-alternative" value="b" disable>b</button>
+                            </div>
+                            <div class="col-auto ps-1">
+                                <button class="btn btn-success btn-disable-alternative" value="c" disable>c</button>
+                            </div>
+                            <div class="col-auto ps-1">
+                                <button class="btn btn-success btn-disable-alternative" value="d" disable>d</button>
+                            </div>
+                            <div class="col-auto ps-1">
+                                <button class="btn btn-success pe-3 btn-disable-alternative" value="e" disable>e</button>
+                            </div>
+                            <div class="col-auto ps-1 pe-0">
+                                <button class="btn btn-danger pe-3" id="btn-clear-disabled-alternatives" disable>l</button>
+                            </div>
+                        </div>
+                    <!--<div class="col-4">
+                        <button class="btn btn-info w-100" id="btn-clear-disable-alternatives" disabled>limpar desabilitadas</button>
+                    </div>
+                    
+                    <div class="col-4">
+                        <button class="btn btn-danger w-100" id="btn-reset-alternative" disabled>RESETAR ALTERNATIVA</button>
+                    </div>-->
+                </div>
+            </div>
+        </section>
+        <section id="display-panel" class="background hidden">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-4 column">
+                        <div class="w-100 pt-4 pb-4 text-center">
+                            <img src="/assets/img/logo.png" alt="Logo" class="img-logo">
+                        </div>
+                        <div class="w-100 mb-2 question hidden" id="question">
+                            <p class="p-1 ps-5 mb-0 me-1"><b id="text-question">TEXTO DA QUESTÃO TEXTO DA QUESTÃO TEXTO DA QUESTÃO TEXTO DA QUESTÃO TEXTO DA QUESTÃO TEXTO DA QUESTÃO</b></p>
+                        </div>
+                        <div class="w-100 mb-2 alternative hidden" id="alternative-a">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-auto ps-0 pe-0">
+                                        <div class="letter mt-1 mb-1">A</div>
+                                    </div>
+                                    <div class="col">
+                                        <b id="text-alternative-a" class="alternative-text">ALTERNATIVA A</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 mb-2 alternative hidden" id="alternative-b">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-auto ps-0 pe-0">
+                                        <div class="letter mt-1 mb-1">B</div>
+                                    </div>
+                                    <div class="col">
+                                        <b id="text-alternative-b" class="alternative-text">ALTERNATIVA B</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 mb-2 alternative hidden" id="alternative-c">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-auto ps-0 pe-0">
+                                        <div class="letter mt-1 mb-1">C</div>
+                                    </div>
+                                    <div class="col">
+                                        <b id="text-alternative-c" class="alternative-text">ALTERNATIVA C</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 mb-2 alternative hidden" id="alternative-d">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-auto ps-0 pe-0">
+                                        <div class="letter mt-1 mb-1">D</div>
+                                    </div>
+                                    <div class="col">
+                                        <b id="text-alternative-d" class="alternative-text">ALTERNATIVA D</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 mb-2 alternative hidden" id="alternative-e">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-auto ps-0 pe-0">
+                                        <div class="letter mt-1 mb-1">E</div>
+                                    </div>
+                                    <div class="col">
+                                        <b id="text-alternative-e" class="alternative-text">ALTERNATIVA E</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-8 invisible-area text-center">
+                        <input type="text" id="selected-alternative" hidden>
+                        <div class="container-fluid mt-5">
+                            <div class="row">
+                                <video id="video" width="800px" height="600px"></video>
+                                <img src="/assets/img/0.png" alt="" id="img-card" class="img-card hidden">
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/GnWiz1vMMj9TiviDhneUJ?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-1"  class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/3VVwdw8h7r5TgoRMfd2tm?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-2"  class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/jSE2ujbztwDVjt23Vo6ff?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-3"  class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/vvef85DtKTHAt8KzBsvhz?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-4"  class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/1yBEiYeOkSIYpYMPkyUBf?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-5"  class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/P6fqfLNZn6W8Qf0KYV7Ce?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-6"  class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/xXsOgPGToKKfgXY6MwfBm?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-7"  class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/xv4rsFeRcrsV6iK38D34E?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-8"  class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/XdRv7SdW5Qmxr18ngTs0H?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-9"  class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/5XDCR39WCBg1X7KkQg07s?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-10" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/ijJWbFnd4lTNvrDjJCUFs?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-11" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/XGoHj5sv5fyBl2fyReOO8?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-12" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/ptrclCJKWvg5h9HkStbqu?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-13" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/T3rJ3SHBINDAjfjsDzn44?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-14" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/UaplDqVCE7yCT9eHZhzSY?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-15" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/OMsyPO85XuQIgpF1fHz1K?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-16" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/cVZsxAhqVjW8HZpAyQumr?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-17" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/0fmbJP5sZQcGsnkU0ZAHV?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-18" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/eEBd84HdXKLYZHNwtwCqd?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-19" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/VSmpgR9dRNI4Olw1mPtZz?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-20" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/i3S47Ky1UOKkfX0ANJt5a?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-21" class="hidden result-slide-question"></iframe>
+                                <!--<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/pqwvMwV33iOV19xyYmk0u?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-22" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/EJs1FtWuR0SeKYiUrrReX?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-23" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/blmEKsnV7MBw6PrwlFAoi?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-24" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/jhY3UsT7aSVexdHNbvPvk?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-25" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/vBpwir96TI3iDjhyCY0bH?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-26" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/QkLv0VZmobFs4Uracwr1B?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-27" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/RQDC7k1ql5qJbNXNpDqc6?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-28" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/Z4Qq4JkB74jxMSWPJAF0y?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-29" class="hidden result-slide-question"></iframe>
+                                <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/QYd1Z2Hpdhl9BqzInDpaZ?controls=none&short_poll=true" width="800px" height="600px" id="result-slide-question-30" class="hidden result-slide-question"></iframe>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/questions.js"></script>
+        <script src="/assets/js/index.js"></script>
+    </body>
+</html>

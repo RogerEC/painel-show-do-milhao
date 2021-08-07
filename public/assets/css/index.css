@@ -1,0 +1,112 @@
+.column {
+    background-color: rgb(14, 30, 129);
+    z-index: 99;
+    height: 100vh;
+}
+
+.invisible-area {
+    background-color: #202124;
+    z-index: 1;
+    height: 100vh;
+}
+
+.background {
+    background-color: #202124;
+    color: #FFFFFF;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+}
+
+.question {
+    background-color: rgb(149, 37, 37);
+    z-index: 100;
+    min-width: 110%;
+    margin-left: -20px;
+    color: rgb(230, 230, 230);
+    font-size: 1.5rem;
+    border-style: solid;
+    border-color: rgb(230, 230, 230);
+    border-width: 4px;
+    border-radius: 10px;
+    animation-name: question-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.alternative {
+    background-color: rgb(189, 37, 45);
+    color: rgb(230, 230, 230);
+    border-style: solid;
+    border-color: rgb(230, 230, 230);
+    border-width: 3px;
+    border-radius: 10px;
+    animation-name: answer-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.alternative-selected {
+    background-color: rgb(146, 0, 29) !important;
+}
+
+.alternative-correct {
+    background-color: rgb(49, 134, 0) !important;
+}
+
+.alternative-wrong {
+    background-color: rgb(95, 0, 0) !important;
+}
+
+.alternative-deleted {
+    background-color: rgb(59, 59, 59) !important;
+}
+
+.letter {
+    background-color: rgb(230, 230, 230);
+    color: blue;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.75rem;
+    border-radius: 15px;
+    line-height: 1.7rem;
+    height: 30px;
+    width: 30px;
+}
+
+.alternative-text {
+    font-size: 1.5rem;
+}
+
+.img-card {
+    height: 500px;
+    max-height: 500px;
+}
+
+.img-logo {
+    max-width: 60%;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes answer-in {
+    from {
+        margin-left: -110%;
+    }
+
+    to {
+        margin-left: 0%;
+    }
+}
+
+@keyframes question-in {
+    from {
+        margin-left: -110%;
+    }
+
+    to {
+        margin-left: -20px;
+    }
+}
